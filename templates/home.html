@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Smart BOPM Reader - SBR{% endblock %}
+
+{% block content %}
+    <div class="container-fluid d-flex justify-content-center shadow-2-strong"
+        style="background-image: linear-gradient(to right, #fffafa , #00508a);">
+        <div class="col-12 col-md-4 p-2 d-flex align-items-center" width = "300px">
+            <img height="100px" src="{% static "imagens/Brasao180-2.png" %}">
+        </div>
+        <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
+            <div class="h1 text-dark">Sistema de Importação de BOPM digitalizados </div>
+        </div>
+        <div class="col-12 col-md-4 text-end">
+            <img style="size: 12px;" src= "{% static "imagens/IC-Logo.png" %}">
+        </div>
+    </div>
+    <br />
+    <div class="container-fluid d-flex justify-content-center ">
+        <div class="row ">
+            <div class="card col-7 flex-grow-1">
+                <div class=" h-100 d-flex align-items-center mb-5">
+                    <img src="{% static "imagens/apresetacao.gif" %}" title="Logo da HomeHost">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

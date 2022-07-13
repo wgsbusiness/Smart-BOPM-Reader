@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Smart BOPM Reader - SBR{% endblock %}
+
+{% block content %}
+    <div class="container-fluid d-flex justify-content-center shadow-2-strong"
+        style="background-image: linear-gradient(to right, #fffafa , #00508a);">
+        <div class="col-12 col-md-4 p-2 d-flex align-items-center" width = "300px">
+            <img height="100px" src="{% static "imagens/Brasao180-2.png" %}">
+        </div>
+        <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
+            <div class="h1 text-dark">Sistema de Importação de BOPM digitalizados </div>
+        </div>
+        <div class="col-12 col-md-4 text-end">
+            <img style="size: 12px;" src= "{% static "imagens/IC-Logo.png" %}">
+        </div>
+    </div>
+    <br />
+    <div class="container-fluid d-flex justify-content-center ">
+        <div class="row ">
+            <div class="card col-4 mx-2">
+                <div class="d-flex justify-content-center align-items-center">
+                    <img width="50%" class="p-3" src="{% static "imagens/caesbrasao.png" %}">
+                </div>
+                <div class="row h1 d-flex justify-content-center align-items-center">
+                    CAES
+                </div>
+                <div class="row h5 d-flex justify-content-center align-items-center text-center">
+                    Coordenadoria de Assuntos<br /> Estratégicos
+                </div>
+                <br/>
+            </div>
+            <div class="card col-7 flex-grow-1">
+                <div class=" h-100 d-flex align-items-center mb-5">
+                    <div class="text-center">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img width="30%" class="p-3" src="{% static "imagens/sucesso.jpg" %}">
+                        </div>
+                        <h3 class="text-center card-title mt-3" style="color: #00508a">Arquivo enviado com sucesso!</h3>
+                        <div class="form-group">
+                            <form>
+                                <a href="{% url 'uploadfiles:uploadfilesPage' %}">
+                                    <input class="btn btn-outline-success btn-rounded w-50" type="button" value="Clique aqui para continuar">
+                                </a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
