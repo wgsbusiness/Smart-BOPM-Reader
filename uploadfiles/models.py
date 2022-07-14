@@ -3,7 +3,7 @@ import hashlib
 import time
 from uploadfiles.views import uploadFile
 
-"""
+
 class bulletin(models.Model):
 
     class Meta:
@@ -15,6 +15,7 @@ class bulletin(models.Model):
     # 0 - Não processado; 1 - Em processamento; 2 - Processado
     done = models.IntegerField(default=0)
 
+
 class files(models.Model):
 
     def hashFile(instance, filename):
@@ -23,6 +24,10 @@ class files(models.Model):
 
 
     def get_hash(instance, img_path):
+        print("@@@@@@@ RREALIZANDO HASH @@@@@@@@")
+        
+        print(img_path.path())
+        
         # This function will return the `md5` checksum for any input image.
         with open(img_path, "rb") as f:
             img_hash = hashlib.md5()
@@ -40,13 +45,18 @@ class files(models.Model):
     
     hashName = models.CharField(max_length=200, null=True)
     
+    file = models.FileField(null=True, blank=True) #(upload_to="", null=True, blank=True)
+    
     fileExtension = models.CharField(max_length=200, null=True)
     
     status = models.CharField(max_length=200, null=True)
     
     parent = models.ForeignKey('files', on_delete=models.CASCADE, max_length=10, null=True, blank=True)
 
+    bulletin = models.ForeignKey('bulletin', on_delete=models.CASCADE, max_length=10, null=True, blank=True)
 
+
+"""
 class fileFields (models.Model):
 
     class Meta:
@@ -86,7 +96,7 @@ class Document(models.Model):
     log = models.TextField(max_length=20000, null=True, blank=True)
     User = models.ForeignKey(
         'users.User', on_delete=models.CASCADE, max_length=10, null=True, blank=True)
-    uploadedFileHash = models.FileField(upload_to=hash_directory_path)
+    uploadedFileHash = models.FileField(upload_to=hash_directory_path, null=True, blank=True)
 
     parent = models.ForeignKey(
         'Document', on_delete=models.CASCADE, max_length=10, null=True, blank=True)
