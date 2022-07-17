@@ -1,10 +1,12 @@
 data/
 env/
 sbrw/__pycache__/
+sbrw/__pycache__/
 uploadfiles/__pycache__/
 users/__pycache__/
 pages/__pycache__/
 classes/__pycache__/
 sbrw/data/
 __pycache__/
+listfiles/__pycache__/
 db.sqlite3

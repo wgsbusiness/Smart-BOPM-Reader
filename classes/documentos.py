@@ -114,7 +114,20 @@ class Documentos:
 	a seguencia deve ser vista na base de dados
 
 	"""
-
+	def files(self):
+		consulta = 'select id, * from uploadfiles_bulletin as b inner join uploadfiles_files f on b.id = f.bulletin_id'
+		# Realizando a conexão com o banco de dados 
+		conn = sqlite3.connect('db.sqlite3')
+		# setting the cursor
+		cursor = conn.cursor()
+		#Executando a consulta
+		files = cursor.execute(consulta)
+		# Persistindo na base de dados
+		conn.commit()
+		# Fechando a base de dados
+		conn.close
+		print("@@@@@@@@@@@@    SHOW @@@@@@@@@@@@@@@@@@@@@@@@")
+		return files
 	def savefiles(self):
 		try:
 			print("@@@@@@ INSERÇAO@@@@@@@")

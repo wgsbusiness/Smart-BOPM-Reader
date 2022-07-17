@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Smart BOPM Reader - SBR{% endblock %}
+{% block content %}
+    <div class="container-fluid d-flex justify-content-center shadow-2-strong"
+        style="background-image: linear-gradient(to right, #fffafa , #00508a);">
+        <div class="col-12 col-md-4 p-2 d-flex align-items-center" width="300px">
+            <img height="100px" src="{% static "imagens/Brasao180-2.png" %}">
+        </div>
+        <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
+            <div class="h1 text-dark">Sistema de Importação de BOPM digitalizados </div>
+        </div>
+        <div class="col-12 col-md-4 text-end">
+            <img style="size: 12px;" src="{% static "imagens/IC-Logo.png" %}">
+        </div>
+    </div>
+    <br />
+    <h3 class="text-left card-title mt-3" style="color: #00508a">Modúlo de listagem de arquivo</h3>
+    <div class="container-fluid d-flex justify-content-center ">
+        {{bulletin}}
+        <table class ="table">
+            <thead classe="thead-dark">
+                <tr>
+                    <th scope = "col">#</th>
+                    <th scope="col">Usuário</th>
+                    <th scope="col">Numero</th>
+                    <th scope="col">data de Upload</th>
+                </tr>
+            </thead>
+            {% for b in bulletin %}
+                <tbody>
+                    <tr>
+                        <th scope ="row">{{b.id}}</th>
+                        <td>{{b.username}}</td>
+                        <td>{{b.numero}}<</td>
+                        <td>{{b.dateTimeOfUpload}}</td>
+                    </tr>
+                </tbody>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

@@ -103,7 +103,7 @@ def uploadFile(request):
             )
             document.save()
             """
-        return render(request, "sucesso.html", context={"files": bulletin})
+        return render(request, "sucesso.html", context={"files": bulletin.number})
     except Exception as e:    
         return render(request, "error.html", context={"Error": logger.error("Erro ao importar o arquivo!" +str(e))})
         

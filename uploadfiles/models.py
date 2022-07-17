@@ -9,12 +9,15 @@ class bulletin(models.Model):
     class Meta:
         ordering = ['-number']
 
+
     dateTimeOfUpload = models.DateTimeField(auto_now=True)
     number = models.CharField(max_length=200)
     User = models.ForeignKey('users.User', on_delete=models.CASCADE, max_length=10, null=True, blank=True)
     # 0 - Não processado; 1 - Em processamento; 2 - Processado
     done = models.IntegerField(default=0)
-
+    
+    def __str__(self):
+        return f'{self.User} {self.number} {self.dateTimeOfUpload} {self.done}'
 
 class files(models.Model):
 
